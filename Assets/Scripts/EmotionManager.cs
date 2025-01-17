@@ -1,19 +1,62 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EmotionManager : MonoBehaviour
 {
+    [Header("Giá trị cảm xúc")]
     public float happy;
     public float sad;
     public float angry;
     public float scared;
 
+    public float energy;
+    
+    [Header("Giá trị tối đa")]
+    public float maxEnergyValue = 20f;
+
     public float maxEmotionValue = 10f;
+
+    // public Button happyButton;
+    // public Button sadButton;
+    // public Button angryButton;
+    // public Button scaredButton;
+    // public Button energyButton; 
+
+    [Header("Thanh trạng thái cảm xúc")]
+    public Slider happySlider;  
+    public Slider sadSlider;    
+    public Slider angrySlider;  
+    public Slider scaredSlider;  
+    public Slider energySlider;
+
+    void Start()
+    {
+        // happyButton.onClick.AddListener(() => AdjustEmotion("happy", 1f));
+        // sadButton.onClick.AddListener(() => AdjustEmotion("sad", 1f));
+        // angryButton.onClick.AddListener(() => AdjustEmotion("angry", 1f));
+        // scaredButton.onClick.AddListener(() => AdjustEmotion("scared", 1f));
+        // energyButton.onClick.AddListener(() => AdjustEnergy(1f)); 
+
+        // Khởi tạo giá trị tối đa cho Slider
+        happySlider.maxValue = maxEmotionValue;
+        sadSlider.maxValue = maxEmotionValue;
+        angrySlider.maxValue = maxEmotionValue;
+        scaredSlider.maxValue = maxEmotionValue;
+        energySlider.maxValue = maxEnergyValue;
+    }
 
     void Update()
     {
         CheckDominantEmotion();
 
-        Debug.Log($"Happy: {happy}, Sad: {sad}, Angry: {angry}, Scared: {scared}");
+        //Debug.Log($"Happy: {happy}, Sad: {sad}, Angry: {angry}, Scared: {scared}, Energy: {energy}");
+
+        // Cập nhật giá trị của Slider
+        happySlider.value = happy;
+        sadSlider.value = sad;
+        angrySlider.value = angry;
+        scaredSlider.value = scared;
+        energySlider.value = energy;
     }
 
     void CheckDominantEmotion()
@@ -37,6 +80,12 @@ public class EmotionManager : MonoBehaviour
         {
             scared = maxEmotionValue;
             Debug.Log("Scared State");
+        }
+
+        if (energy >= maxEnergyValue)
+        {
+            energy = maxEnergyValue;
+            Debug.Log("Energy is full!");
         }
     }
 
@@ -71,5 +120,14 @@ public class EmotionManager : MonoBehaviour
         sad = Mathf.Max(0, sad);
         angry = Mathf.Max(0, angry);
         scared = Mathf.Max(0, scared);
+    }
+
+    public void AdjustEnergy(float amount)
+    {
+        energy = Mathf.Min(maxEnergyValue, energy + amount);
+        if (energy >= maxEnergyValue)
+        {
+            Debug.Log("Energy is full!");
+        }
     }
 }

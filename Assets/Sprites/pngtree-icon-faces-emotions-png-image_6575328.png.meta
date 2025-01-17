@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngtree-icon-faces-emotions-png-image_6575328_0: 5193124611107468472
+      pngtree-icon-faces-emotions-png-image_6575328_1: -3273908280905713960
+      pngtree-icon-faces-emotions-png-image_6575328_2: -7949916063150971421
+      pngtree-icon-faces-emotions-png-image_6575328_3: 4432686711690489069
+      pngtree-icon-faces-emotions-png-image_6575328_4: 8306083746383330954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

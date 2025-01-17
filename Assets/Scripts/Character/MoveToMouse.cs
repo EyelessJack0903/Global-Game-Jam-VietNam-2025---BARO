@@ -31,4 +31,10 @@ public class MoveToMouse : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Nếu va chạm với một vật có Collider, dừng di chuyển
+        isMoving = false;
+    }
 }

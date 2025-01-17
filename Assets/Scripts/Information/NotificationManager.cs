@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,14 +9,15 @@ public class NotificationManager : MonoBehaviour
     public Transform notificationPanel; // Panel chứa thông báo
     public float notificationDuration = 5f; // Thời gian hiển thị mỗi thông báo
 
-    public void ShowNotification(string message)
+    public void ShowNotification(string message, string content)
     // public void ShowNotification(Sprite icon, string message)
     {
         // Tạo thông báo mới từ prefab
         GameObject newNotification = Instantiate(notificationPrefab, notificationPanel);
         // Gán icon và message
         // newNotification.transform.Find("Icon").GetComponent<Image>().sprite = icon;
-        newNotification.transform.Find("Message").GetComponent<Text>().text = message;
+        newNotification.transform.Find("Message").GetComponent<TMP_Text>().text = message;
+        newNotification.transform.Find("Content").GetComponent<TMP_Text>().text = content;
         // // Bắt đầu đếm ngược để xóa thông báo
         // StartCoroutine(RemoveNotificationAfterTime(newNotification, notificationDuration));
     }
@@ -25,9 +27,9 @@ public class NotificationManager : MonoBehaviour
     //     yield return new WaitForSeconds(delay);
     //     Destroy(notification); // Xóa thông báo sau thời gian delay
     // }
-    void Update(){
-        if (Input.GetKeyDown(KeyCode.Space)){
-            ShowNotification("Thông báo mới!");
-        }
-    }
+    // void Update(){
+    //     if (Input.GetKeyDown(KeyCode.Space)){
+    //         ShowNotification("Thông báo mới!");
+    //     }
+    // }
 }

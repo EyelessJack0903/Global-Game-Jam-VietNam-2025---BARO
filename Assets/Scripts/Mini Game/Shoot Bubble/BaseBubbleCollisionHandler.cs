@@ -18,8 +18,6 @@ public abstract class BaseBubbleCollisionHandler : MonoBehaviour
 
         if (thisBubble != null && otherBubble != null && IsMatchingType(thisBubble.bubble, otherBubble.bubble))
         {
-            Debug.Log($"Collision detected: {thisBubble.bubble} and {otherBubble.bubble}");
-
             BaseBubbleCollisionHandler otherHandler = collision.gameObject.GetComponent<BaseBubbleCollisionHandler>();
             if (otherHandler != null && !otherHandler.hasHandledCollision)
             {
@@ -41,7 +39,11 @@ public abstract class BaseBubbleCollisionHandler : MonoBehaviour
         Vector3 spawnPosition = (bubble1.transform.position + bubble2.transform.position) / 2;
         GameObject newBubble = Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
 
-        Debug.Log($"Spawned new bubble: {newBubble.name} at {spawnPosition}");
+        CircleCollider2D collider = newBubble.GetComponent<CircleCollider2D>();
+        if (collider != null)
+        {
+            collider.enabled = true;
+        }
 
         Rigidbody2D rb = newBubble.GetComponent<Rigidbody2D>();
         if (rb != null)

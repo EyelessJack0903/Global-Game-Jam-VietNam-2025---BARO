@@ -32,7 +32,7 @@ public class EmotionManager : MonoBehaviour
     {
         CheckDominantEmotion();
 
-        Debug.Log($"Happy: {happy}, Sad: {sad}, Angry: {angry}, Scared: {scared}, Energy: {energy}");
+        //Debug.Log($"Happy: {happy}, Sad: {sad}, Angry: {angry}, Scared: {scared}, Energy: {energy}");
     }
 
     void CheckDominantEmotion()

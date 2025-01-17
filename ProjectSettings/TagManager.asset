@@ -4,7 +4,13 @@
 TagManager:
   serializedVersion: 3
   tags:
+<<<<<<< HEAD
   - TargetArea
+=======
+  - BoxCollider
+  - Bug
+  - Trash
+>>>>>>> 579ee21c57219214d5e5c84280dd67cb51ab4744
   layers:
   - Default
   - TransparentFX
@@ -12,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Bug
+  - Trash
   - 
   - 
   - 

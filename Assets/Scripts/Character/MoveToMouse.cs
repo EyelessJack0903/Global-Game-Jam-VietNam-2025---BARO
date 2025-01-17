@@ -8,6 +8,7 @@ public class MoveToMouse : MonoBehaviour
     private bool isMoving = false;
 
     void Update()
+    // void FixedUpdate()
     {
         // Kiểm tra nếu người chơi nhấn chuột trái
         if (Input.GetMouseButtonDown(0))

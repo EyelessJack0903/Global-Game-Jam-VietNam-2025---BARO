@@ -1,0 +1,49 @@
+using UnityEngine;
+
+public class WallClock : MonoBehaviour
+{
+    public RectTransform minuteHand; // Kim phút
+    public RectTransform hourHand;   // Kim giờ
+
+    public float duration = 180f;    // Thời gian để quay từ 6h đến 7h (3 phút = 180 giây)
+
+    private float elapsedTime = 0f;  // Thời gian đã trôi qua
+    private const float hoursToDegrees = 360 / 12;  // Đổi giờ sang góc (1 giờ = 30°)
+    private const float minutesToDegrees = 360 / 60; // Đổi phút sang góc (1 phút = 6°)
+
+    public float startHour = 6f; // Giờ bắt đầu
+    public float endHour = 7f;   // Giờ kết thúc
+
+    void Update()
+    {
+        // Tăng thời gian đã trôi qua
+        elapsedTime += Time.deltaTime;
+
+        // Tính tỷ lệ thời gian đã trôi qua (0 đến 1)
+        float t = Mathf.Clamp01(elapsedTime / duration);
+
+        // Tính giờ hiện tại (nội suy giữa 6h và 7h)
+        float currentHour = Mathf.Lerp(startHour, endHour, t);
+
+        // Tính phút hiện tại dựa trên phần thập phân của giờ (ví dụ: 6.5h = 30 phút)
+        float currentMinute = (currentHour - Mathf.Floor(currentHour)) * 60;
+
+        // Xoay kim giờ
+        if (hourHand != null)
+        {
+            hourHand.rotation = Quaternion.Euler(0, 0, -currentHour * hoursToDegrees);
+        }
+
+        // Xoay kim phút
+        if (minuteHand != null)
+        {
+            minuteHand.rotation = Quaternion.Euler(0, 0, -currentMinute * minutesToDegrees);
+        }
+
+        // Log cảnh báo khi đạt 7h
+        if (Mathf.Approximately(currentHour, 7f))
+        {
+            Debug.Log("Cảnh báo: Đồng hồ đã đạt 7 giờ!");
+        }
+    }
+}

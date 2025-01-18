@@ -61,6 +61,12 @@ public class MiniGameController : MonoBehaviour
                     {
                         moveScript.enabled = false;
                     }
+
+                    BoxCollider2D coll = obj.GetComponent<BoxCollider2D>();
+                    if (coll != null)
+                    {
+                        coll.enabled = false;
+                    }
                 }
                 else
                 {
@@ -91,6 +97,12 @@ public class MiniGameController : MonoBehaviour
                     if (moveScript != null)
                     {
                         moveScript.enabled = false;
+                    }
+
+                    BoxCollider2D coll = obj.GetComponent<BoxCollider2D>();
+                    if (coll != null)
+                    {
+                        coll.enabled = true;
                     }
                 }
                 else
@@ -139,29 +151,36 @@ public class MiniGameController : MonoBehaviour
 
     private IEnumerator HandleWCPanel()
     {
+        // Chờ 3 giây
         yield return new WaitForSeconds(3f);
         wallClock.SetTimeScale(1);
 
+        // Ẩn wcPanel
         if (wcPanel != null)
         {
             wcPanel.SetActive(false);
         }
 
+        // Hiển thị lại các GameObject trong mảng hideForMinigame
         foreach (GameObject obj in hideForMinigame)
         {
             if (obj != null)
             {
                 if (obj.CompareTag("Character"))
                 {
+                    // Bật lại script MoveToMouse nếu nó bị vô hiệu hóa
                     MoveToMouse moveScript = obj.GetComponent<MoveToMouse>();
                     if (moveScript != null)
                     {
                         moveScript.enabled = true;
                     }
-                    obj.transform.position = Vector3.zero;
+
+                    // Đặt nhân vật tại vị trí chính giữa màn hình
+                    obj.transform.position = new Vector3(0, -1, 0);
                 }
                 else
                 {
+                    // Hiển thị lại các obj khác
                     obj.SetActive(true);
                 }
             }

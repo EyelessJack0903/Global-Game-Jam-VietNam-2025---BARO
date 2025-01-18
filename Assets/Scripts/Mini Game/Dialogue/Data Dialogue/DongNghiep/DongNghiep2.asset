@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cd2fff4d825a1644db6fecf7b945e7eb, type: 2}
   - {fileID: 11400000, guid: 71a7567449ddce445bdfe56f38bb3f37, type: 2}
   isChoice: 0
-  delayTime: 5
+  delayTime: 100

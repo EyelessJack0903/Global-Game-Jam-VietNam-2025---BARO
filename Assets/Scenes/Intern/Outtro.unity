@@ -277,8 +277,8 @@ MonoBehaviour:
   m_text: "M\u1EB9 ch\u1EC9 mu\u1ED1n h\u1ECFi th\u0103m con th\xF4i, l\xE2u l\u1EAFm
     r\u1ED3i ch\u01B0a th\u1EA5y con v\u1EC1 \u0103n c\u01A1m nh\xE0."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -413,8 +413,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Global Game Jam Vi\u1EC7t Nam 2025"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -549,8 +549,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "T\u1EBFt n\xE0y con v\u1EC1 nh\xE0 lu\xF4n nha m\u1EB9."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -805,8 +805,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Con \u0111ang b\u1EADn c\xF4ng vi\u1EC7c."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -941,7 +941,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "C\xF3 cu\u1ED9c g\u1ECDi \u0111\u1EBFn..."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &766694030
@@ -1216,8 +1216,8 @@ MonoBehaviour:
     T\xE2m\r\n3. L\xEA Tr\u1ECDng Nam\r\n4. Ph\u1EA1m T\u1EA5n Khi\xEAm\r\n5. Phan
     Anh Tu\u1EA5n\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1547,7 +1547,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Con nh\u1EDB gi\u1EEF g\xECn s\u1EE9c kh\u1ECFe nh\xE9 con!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -25.581942, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1511427812
@@ -1812,8 +1812,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "C\xF3 g\xEC con g\u1ECDi l\u1EA1i m\u1EB9 sau nh\xE9."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1948,7 +1948,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "M\u1EB9 Y\xEAu"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2014,7 +2014,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1737088574
@@ -2084,8 +2084,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "C\xF4ng vi\u1EC7c con nhi\u1EC1u l\u1EAFm."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 110be842197ff3740b62876e3f99af44, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 110be842197ff3740b62876e3f99af44, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

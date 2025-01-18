@@ -26,9 +26,14 @@ public class StampGame : MonoBehaviour
 
     public GameObject gameOverPanel;
     public static bool isGameOver = false;
+    public static bool isWinner = false;
+
+    private EmotionManager emotionManager;
 
     void Start()
     {
+        emotionManager = FindFirstObjectByType<EmotionManager>();
+
         targetHandle = targetAreaScrollbar.handleRect;
 
         paperButton.onClick.AddListener(() => HandleLeftClick());
@@ -130,11 +135,13 @@ public class StampGame : MonoBehaviour
         {
             score++;
             Debug.Log($"Correct! Score: {score}");
+            emotionManager.AdjustEmotion("happy", 0.2f);
             CheckScore();
         }
         else
         {
             lives--;
+            emotionManager.AdjustEmotion("scared", 0.1f);
             ShrinkTargetArea();
             Debug.Log($"Wrong! Lives left: {lives}");
             CheckGameOver();
@@ -193,6 +200,7 @@ public class StampGame : MonoBehaviour
         {
             FindObjectOfType<EmotionManager>().AdjustEmotion("happy", 2f);
             Debug.Log("Happy emotion increased!");
+            isWinner = true;
         }
     }
 

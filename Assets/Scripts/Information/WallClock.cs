@@ -17,7 +17,7 @@ public class WallClock : MonoBehaviour
     public float endHour = 7f;   // Giờ kết thúc
     [SerializeField] private MiniGameController miniGameController;
 
-
+    private bool isActiveTime = false;
     void Update()
     {
         // Tăng thời gian đã trôi qua với tốc độ được điều chỉnh bởi timeScale
@@ -51,9 +51,12 @@ public class WallClock : MonoBehaviour
             SceneManager.LoadScene("Company");
         }
 
-        if (Mathf.Approximately(currentHour, 12f))
+        //if (Mathf.Approximately(currentHour, 12f)) 
+        if (currentHour >= 12f && !isActiveTime)
         {
             miniGameController.canPlayDialogueMinigame = true;
+            Debug.Log("Da set true can play dialogue");
+            isActiveTime = true;
         }
     }
 

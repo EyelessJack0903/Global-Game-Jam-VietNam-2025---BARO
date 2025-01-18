@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7bfe284b94329749a6c427ca9f2ad0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   bugSpeed: 3
   checkBug: 1.29
   coinPerBug: 10

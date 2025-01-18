@@ -22,6 +22,7 @@ public class MouseBubble : MonoBehaviour
 
     private bool canCatchBugs = true;
     private SpawnBug bugSpawn;
+    private EmotionManager emotionManager;
     private void Awake()
     {
         circleCollider2D = GetComponent<CircleCollider2D>();
@@ -35,6 +36,7 @@ public class MouseBubble : MonoBehaviour
     private void Start()
     {
         bugSpawn = FindFirstObjectByType<SpawnBug>();
+        emotionManager = FindFirstObjectByType<EmotionManager>();
 
         Vector3 center = boxCollider2D.bounds.center;
         transform.position = center;
@@ -115,7 +117,9 @@ private void Update()
                     caughtBug.GetComponent<BugMove>().SetMovementArea(circleCollider2D);
                     caughtBugs.Add(caughtBug); 
 
-                    alreadyCaughtBugs.Add(caughtBug); 
+                    alreadyCaughtBugs.Add(caughtBug);
+
+                    emotionManager.AdjustEmotion("scared", 0.1f);
 
                     if (caughtBugs.Count >= 5)
                     {
@@ -158,7 +162,9 @@ private void Update()
             }
         }
 
-        caughtBugs.Clear(); 
+        caughtBugs.Clear();
+        emotionManager.AdjustEmotion("happy", 0.2f);
+
         canCatchBugs = true;
         Debug.Log("Released all bugs. Total Bugs: " + caughtBugs.Count + ", Total Coins: " + totalCoins);
     }

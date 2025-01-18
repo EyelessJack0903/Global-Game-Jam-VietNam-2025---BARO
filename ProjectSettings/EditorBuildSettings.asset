@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intern/Outtro.unity
     guid: 4790b5a10bf22d040ab70491130cfea6
+  - enabled: 1
+    path: Assets/Scenes/MENU.unity
+    guid: 9c728ad9fba97864daf5e3b8484ca784
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

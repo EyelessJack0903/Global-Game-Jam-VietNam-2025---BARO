@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 
 public class MiniGameController : MonoBehaviour
@@ -8,7 +7,6 @@ public class MiniGameController : MonoBehaviour
     public GameObject[] hideForMinigame;
     public GameObject minigameBedPrefab;
     public GameObject wcPanel;
-<<<<<<< HEAD
     public GameObject minigameComputerPrefab;
 
     private bool isComputerActive = false; // Biến kiểm soát trạng thái của Computer
@@ -20,38 +18,11 @@ public class MiniGameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && isComputerActive)
         {
             CloseComputer();
-=======
-    public TextMeshProUGUI winTextUI;
-
-    private bool isMinigameActive = false;
-
-    private void Start()
-    {
-        winTextUI.gameObject.SetActive(false);
-    }
-    void Update()
-    {
-        if (isMinigameActive)
-        {
-            // Tìm kiếm các GameObject có layer "Happy"
-            int happyLayer = LayerMask.NameToLayer("Happy");
-            GameObject[] happyObjects = FindObjectsOfType<GameObject>();
-
-            foreach (GameObject obj in happyObjects)
-            {
-                if (obj.layer == happyLayer)
-                {
-                    StartCoroutine(ShowWinScreen());
-                    return;
-                }
-            }
->>>>>>> 3ad9ac6e88c5ef34657dc7185521c4c855ae1ca6
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-<<<<<<< HEAD
         // Map home ----
         if (collision.gameObject.name == "Bed")
         {
@@ -76,14 +47,6 @@ public class MiniGameController : MonoBehaviour
         foreach (GameObject obj in hideForMinigame)
         {
             if (obj != null)
-=======
-        // Kiểm tra nếu đối tượng va chạm có tên là "Bed"
-        if (collision.gameObject.name == "Bed")
-        {
-            isMinigameActive = true;
-            // Ẩn tất cả các GameObject trong mảng hideForMinigame
-            foreach (GameObject obj in hideForMinigame)
->>>>>>> 3ad9ac6e88c5ef34657dc7185521c4c855ae1ca6
             {
                 if (obj.CompareTag("Character"))
                 {
@@ -198,51 +161,4 @@ public class MiniGameController : MonoBehaviour
             }
         }
     }
-
-    private IEnumerator ShowWinScreen()
-    {
-        isMinigameActive = false;
-
-        // Hiển thị dòng chữ "Win"
-        if (winTextUI != null)
-        {
-            winTextUI.text = "WIN";
-            winTextUI.gameObject.SetActive(true);
-        }
-
-        //GameObject[] bubbleObjects = GameObject.FindGameObjectsWithTag("Bubble");
-        //foreach (GameObject bubble in bubbleObjects)
-        //{
-        //    Destroy(bubble);
-        //}
-
-        //foreach (GameObject obj in hideForMinigame)
-        //{
-        //    if (obj != null)
-        //    {
-        //        obj.SetActive(true);
-
-        //        if (obj.CompareTag("Character"))
-        //        {
-        //            MoveToMouse moveScript = obj.GetComponent<MoveToMouse>();
-        //            if (moveScript != null)
-        //            {
-        //                moveScript.enabled = true;
-        //            }
-        //        }
-        //    }
-        //}
-
-        yield return new WaitForSeconds(2f);
-
-        winTextUI.gameObject.SetActive(false);
-        GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
-        foreach (GameObject bubble in bubbles)
-        {
-            Destroy(bubble);
-        }
-
-        StartCoroutine(HandleWCPanel());
-    }
-
 }

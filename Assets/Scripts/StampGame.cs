@@ -3,18 +3,30 @@ using UnityEngine.UI;
 
 public class StampGame : MonoBehaviour
 {
-    public Button paperButton; 
-    public Image paperImage;  
+    public Button paperButton;
+    public Image paperImage;
+    public Scrollbar targetAreaScrollbar;
+    public Scrollbar movingBarScrollbar;
 
     public Color redColor = Color.red;
     public Color blueColor = Color.blue;
 
-    private int score = 0;
-    private int lives = 3;
+    public float barSpeed = 0.2f;
+    private bool movingRight = true;
     private string currentColor;
+
+    private int score = 0;
+    private int lives = 5;
+
+    public float shrinkAmount = 0.1f;
+    public float minTargetWidth = 0.2f;
+
+    private RectTransform targetHandle;
 
     void Start()
     {
+       
+        targetHandle = targetAreaScrollbar.handleRect;
 
         paperButton.onClick.AddListener(() => HandleLeftClick());
         RandomizePaperColor();
@@ -22,10 +34,27 @@ public class StampGame : MonoBehaviour
 
     void Update()
     {
+        MoveBar();
 
         if (Input.GetMouseButtonDown(1))
         {
             HandleRightClick();
+        }
+    }
+
+    void MoveBar()
+    {
+        float step = barSpeed * Time.deltaTime;
+
+        if (movingRight)
+        {
+            movingBarScrollbar.value += step;
+            if (movingBarScrollbar.value >= 1f) movingRight = false;
+        }
+        else
+        {
+            movingBarScrollbar.value -= step;
+            if (movingBarScrollbar.value <= 0f) movingRight = true;
         }
     }
 
@@ -43,9 +72,15 @@ public class StampGame : MonoBehaviour
         }
     }
 
+    void RandomizeTargetPosition()
+    {
+        float newPosition = Random.Range(0f, 1f);
+        targetAreaScrollbar.value = newPosition;
+    }
+
     void HandleLeftClick()
     {
-        if (currentColor == "red")
+        if (currentColor == "red" && IsOnTarget())
         {
             score++;
             Debug.Log($"Correct! Score: {score}");
@@ -54,15 +89,18 @@ public class StampGame : MonoBehaviour
         else
         {
             lives--;
+            ShrinkTargetArea();
             Debug.Log($"Wrong! Lives left: {lives}");
             CheckGameOver();
         }
-        RandomizePaperColor(); 
+
+        RandomizeTargetPosition();
+        RandomizePaperColor();
     }
 
     void HandleRightClick()
     {
-        if (currentColor == "blue")
+        if (currentColor == "blue" && IsOnTarget())
         {
             score++;
             Debug.Log($"Correct! Score: {score}");
@@ -71,17 +109,41 @@ public class StampGame : MonoBehaviour
         else
         {
             lives--;
+            ShrinkTargetArea();
             Debug.Log($"Wrong! Lives left: {lives}");
             CheckGameOver();
         }
+
+        RandomizeTargetPosition();
         RandomizePaperColor();
     }
 
+    bool IsOnTarget()
+    {
+        float distance = Mathf.Abs(movingBarScrollbar.value - targetAreaScrollbar.value);
+        float targetRange = targetHandle.sizeDelta.x / targetAreaScrollbar.GetComponent<RectTransform>().sizeDelta.x;
+
+        return distance <= targetRange;
+    }
+
+
+    void ShrinkTargetArea()
+    {
+        if (targetAreaScrollbar.size > minTargetWidth)
+        {
+            targetAreaScrollbar.size = Mathf.Max(targetAreaScrollbar.size - shrinkAmount, minTargetWidth);
+
+            Debug.Log($"Target area size reduced to: {targetAreaScrollbar.size}");
+        }
+    }
+
+
+
     void CheckScore()
     {
-        if (score % 10 == 0) 
+        if (score % 10 == 0)
         {
-            FindObjectOfType<EmotionManager>().AdjustEmotion("happy", 2f); 
+            FindObjectOfType<EmotionManager>().AdjustEmotion("happy", 2f);
             Debug.Log("Happy emotion increased!");
         }
     }

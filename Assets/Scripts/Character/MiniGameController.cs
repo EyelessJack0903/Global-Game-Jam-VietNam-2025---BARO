@@ -16,6 +16,7 @@ public class MiniGameController : MonoBehaviour
     private GameObject activeComputerInstance; // Lưu trữ instance của Computer khi được tạo
     public TextMeshProUGUI winTextUI;
     private bool isMinigameActive = false;
+    private bool isPlayMiniGameMap2 = false;
 
     private void Start()
     {
@@ -24,6 +25,11 @@ public class MiniGameController : MonoBehaviour
 
     private void Update()
     {
+        if (isPlayMiniGameMap2){
+            GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
+
+        }
+
         // Kiểm tra nếu nhấn phím ESC và Computer đang bật
         if (Input.GetKeyDown(KeyCode.Escape) && isComputerActive)
         {
@@ -44,6 +50,7 @@ public class MiniGameController : MonoBehaviour
                 }
             }
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -65,10 +72,12 @@ public class MiniGameController : MonoBehaviour
         {
             HandleMinigame(minigameComputerPrefab);
             isComputerActive = true; // Đánh dấu trạng thái Computer đang bật
+            isPlayMiniGameMap2 = true;
         }
         if (collision.gameObject.name == "Printer")
         {
             HandleMinigame(minigamePrinterPrefab);
+            isPlayMiniGameMap2 = true;
         }
     }
 
@@ -85,12 +94,6 @@ public class MiniGameController : MonoBehaviour
                     {
                         moveScript.enabled = false;
                     }
-
-                    // BoxCollider2D coll = obj.GetComponent<BoxCollider2D>();
-                    // if (coll != null)
-                    // {
-                    //     coll.enabled = false;
-                    // }
                 }
                 else
                 {
@@ -122,12 +125,6 @@ public class MiniGameController : MonoBehaviour
                     {
                         moveScript.enabled = false;
                     }
-
-                    // BoxCollider2D coll = obj.GetComponent<BoxCollider2D>();
-                    // if (coll != null)
-                    // {
-                    //     coll.enabled = true;
-                    // }
                 }
                 else
                 {

@@ -9,6 +9,13 @@ public abstract class BaseBubbleCollisionHandler : MonoBehaviour
     private bool hasHandledCollision = false; 
     protected float collisionCooldown = 0.5f;
 
+    private EmotionManager EmotionManager;
+
+    private void Start()
+    {
+        EmotionManager = FindFirstObjectByType<EmotionManager>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (hasHandledCollision) return;
@@ -33,6 +40,8 @@ public abstract class BaseBubbleCollisionHandler : MonoBehaviour
 
     private IEnumerator HandleCollision(GameObject bubble1, GameObject bubble2)
     {
+        EmotionManager.AdjustEmotion("happy", 1f);
+
         DisableBubble(bubble1);
         DisableBubble(bubble2);
 

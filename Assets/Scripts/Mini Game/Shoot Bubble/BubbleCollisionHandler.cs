@@ -8,7 +8,7 @@ public class BubbleCollisionHandler : MonoBehaviour
     public GameObject happyPrefab;
     public GameObject fearPrefab;
 
-    private float collisionCooldown = 2f; 
+    private float collisionCooldown = 2f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

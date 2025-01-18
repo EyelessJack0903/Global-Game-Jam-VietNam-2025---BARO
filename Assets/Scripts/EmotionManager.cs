@@ -89,7 +89,7 @@ public class EmotionManager : MonoBehaviour
         }
     }
 
-    public void AdjustEmotion(string emotion, float amount)
+    public void AdjustEmotion(string emotion, float amount) 
     {
         switch (emotion.ToLower())
         {

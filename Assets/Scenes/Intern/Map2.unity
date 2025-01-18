@@ -119,87 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &699702373
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1141989071707006167, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_Name
-      value: BallBlue
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.3628057
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.10254914
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325090397332625294, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3068054416106743902, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_Radius
-      value: 1.6936264
-      objectReference: {fileID: 0}
-    - target: {fileID: 3068054416106743902, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0135741625
-      objectReference: {fileID: 0}
-    - target: {fileID: 3068054416106743902, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-      propertyPath: m_Offset.y
-      value: 1.7738954
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
 --- !u!1 &1906767303
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,8 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7e73eff2d7f9842aa91afb070bca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenBallPrefab: {fileID: 1141989071707006167, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
-  redBallPrefab: {fileID: 1141989071707006167, guid: 5d1c3d0a333c8e04dacace49e10123ab, type: 3}
+  happyBallPrefab: {fileID: 1141989071707006167, guid: 7d359d6ea5f371c4f8c216ba99b1c4c8, type: 3}
+  sadBallPrefab: {fileID: 1141989071707006167, guid: 5d1c3d0a333c8e04dacace49e10123ab, type: 3}
+  angryBallPrefab: {fileID: 1141989071707006167, guid: e0867058a9aaed2449e3bec56b211d8b, type: 3}
+  scaredBallPrefab: {fileID: 1141989071707006167, guid: fce57fa3d43edea499b155f0ce1fe071, type: 3}
   deathZonePrefab: {fileID: 5347093861149634057, guid: 2131eee1a1eb14e418b621087dfdd2c7, type: 3}
   spawnTime: 1.5
   lives: 3
@@ -392,4 +313,3 @@ SceneRoots:
   m_Roots:
   - {fileID: 2139386704}
   - {fileID: 1906767305}
-  - {fileID: 699702373}

@@ -4898,7 +4898,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -4976,6 +4976,7 @@ MonoBehaviour:
   wcPanel: {fileID: 671215570}
   minigameComputerPrefab: {fileID: 0}
   minigamePrinterPrefab: {fileID: 0}
+  winTextUI: {fileID: 0}
 --- !u!1 &1869077844
 GameObject:
   m_ObjectHideFlags: 0

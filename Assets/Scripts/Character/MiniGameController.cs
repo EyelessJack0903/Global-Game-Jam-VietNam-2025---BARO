@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class MiniGameController : MonoBehaviour
@@ -13,6 +14,13 @@ public class MiniGameController : MonoBehaviour
 
     private bool isComputerActive = false; // Biến kiểm soát trạng thái của Computer
     private GameObject activeComputerInstance; // Lưu trữ instance của Computer khi được tạo
+    public TextMeshProUGUI winTextUI;
+    private bool isMinigameActive = false;
+
+    private void Start()
+    {
+        // winTextUI.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -21,6 +29,21 @@ public class MiniGameController : MonoBehaviour
         {
             CloseComputer();
         }
+        if (isMinigameActive)
+        {
+            // Tìm kiếm các GameObject có layer "Happy"
+            int happyLayer = LayerMask.NameToLayer("Happy");
+            GameObject[] happyObjects = FindObjectsOfType<GameObject>();
+
+            foreach (GameObject obj in happyObjects)
+            {
+                if (obj.layer == happyLayer)
+                {
+                    StartCoroutine(ShowWinScreen());
+                    return;
+                }
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,6 +51,7 @@ public class MiniGameController : MonoBehaviour
         // Map home ----
         if (collision.gameObject.name == "Bed")
         {
+            isMinigameActive = true;
             HandleMinigame(minigameBedPrefab);
         }
 
@@ -62,11 +86,11 @@ public class MiniGameController : MonoBehaviour
                         moveScript.enabled = false;
                     }
 
-                    BoxCollider2D coll = obj.GetComponent<BoxCollider2D>();
-                    if (coll != null)
-                    {
-                        coll.enabled = false;
-                    }
+                    // BoxCollider2D coll = obj.GetComponent<BoxCollider2D>();
+                    // if (coll != null)
+                    // {
+                    //     coll.enabled = false;
+                    // }
                 }
                 else
                 {
@@ -99,11 +123,11 @@ public class MiniGameController : MonoBehaviour
                         moveScript.enabled = false;
                     }
 
-                    BoxCollider2D coll = obj.GetComponent<BoxCollider2D>();
-                    if (coll != null)
-                    {
-                        coll.enabled = true;
-                    }
+                    // BoxCollider2D coll = obj.GetComponent<BoxCollider2D>();
+                    // if (coll != null)
+                    // {
+                    //     coll.enabled = true;
+                    // }
                 }
                 else
                 {
@@ -185,5 +209,43 @@ public class MiniGameController : MonoBehaviour
                 }
             }
         }
+    }
+    private IEnumerator ShowWinScreen()
+    {
+        isMinigameActive = false;
+        // Hiển thị dòng chữ "Win"
+        if (winTextUI != null)
+        {
+            winTextUI.text = "WIN";
+            winTextUI.gameObject.SetActive(true);
+        }
+        //GameObject[] bubbleObjects = GameObject.FindGameObjectsWithTag("Bubble");
+        //foreach (GameObject bubble in bubbleObjects)
+        //{
+        //    Destroy(bubble);
+        //}
+        //foreach (GameObject obj in hideForMinigame)
+        //{
+        //    if (obj != null)
+        //    {
+        //        obj.SetActive(true);
+        //        if (obj.CompareTag("Character"))
+        //        {
+        //            MoveToMouse moveScript = obj.GetComponent<MoveToMouse>();
+        //            if (moveScript != null)
+        //            {
+        //                moveScript.enabled = true;
+        //            }
+        //        }
+        //    }
+        //}
+        yield return new WaitForSeconds(2f);
+        // winTextUI.gameObject.SetActive(false);
+        GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
+        foreach (GameObject bubble in bubbles)
+        {
+            Destroy(bubble);
+        }
+        StartCoroutine(HandleWCPanel());
     }
 }

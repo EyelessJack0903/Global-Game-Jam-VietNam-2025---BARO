@@ -4378,6 +4378,7 @@ MonoBehaviour:
   hideForMinigame:
   - {fileID: 1809453659}
   - {fileID: 2100219157}
+  - {fileID: 1593854264}
   minigameBedPrefab: {fileID: 5592669825618912393, guid: 5ba5053abc4fcba418e30eafab481a3a, type: 3}
   wcPanel: {fileID: 0}
   minigameComputerPrefab: {fileID: 698394833335335502, guid: 224d3c84c272cc1479bec4ef2c19728c, type: 3}

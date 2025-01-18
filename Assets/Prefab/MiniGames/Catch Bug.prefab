@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 220354448213023940}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.18, y: 1.55, z: 0}
+  m_LocalPosition: {x: -4.33, y: 1.98, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 775538661666502289}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.16, y: -0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -570,7 +570,7 @@ Transform:
   m_GameObject: {fileID: 8565180914087530766}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.87, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -599,8 +599,11 @@ MonoBehaviour:
   - {fileID: 5077192128763375906}
   - {fileID: 3049471755648733870}
   spawnDelay: 2
+  spawnDuration: 20
   maxSpawn: 10
   currentSpawn: 0
+  coinPerBug: 10
+  coinTextUI: {fileID: 0}
 --- !u!1 &8600758863813559071
 GameObject:
   m_ObjectHideFlags: 0

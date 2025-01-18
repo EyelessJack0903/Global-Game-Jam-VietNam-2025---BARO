@@ -111,7 +111,7 @@ public class MiniGameController : MonoBehaviour
         }
     }
 
-    private void CloseComputer()
+    public void CloseComputer()
     {
         isComputerActive = false; // Đặt lại trạng thái
         if (activeComputerInstance != null)

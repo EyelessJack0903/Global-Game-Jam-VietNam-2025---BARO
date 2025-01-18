@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+using TMPro;
+using System.Collections.Generic;
 
 public class SpawnBug : MonoBehaviour
 {
@@ -7,39 +9,33 @@ public class SpawnBug : MonoBehaviour
     public Transform[] spawnPositions;
 
     public float spawnDelay;
+    public float spawnDuration = 20f;
     private bool canSpawn = true;
 
     public int maxSpawn = 10;
     public int currentSpawn;
 
+    public int coinPerBug = 10;
+
+    private float spawnTimer = 0f;
+    private MiniGameController miniGame;
     private void Start()
     {
+        miniGame = FindFirstObjectByType<MiniGameController>();
         StartCoroutine(SpawnBugs());
     }
-
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.P) && currentSpawn > 0)
-    //    {
-    //        currentSpawn--;
-    //        DestroyBug();
-    //    }
-    //}
-
-    //private void DestroyBug()
-    //{
-    //    GameObject[] bugs = GameObject.FindGameObjectsWithTag("Bug");
-
-    //    if (bugs.Length > 0)
-    //    {
-    //        Destroy(bugs[bugs.Length - 1]); 
-    //    }
-    //}
 
     private IEnumerator SpawnBugs()
     {
         while (canSpawn)
         {
+            if (spawnTimer >= spawnDuration)
+            {
+                canSpawn = false;
+                StartCoroutine(CheckRemainingBugs());
+                yield break;
+            }
+
             if (currentSpawn < maxSpawn)
             {
                 yield return new WaitForSeconds(spawnDelay);
@@ -51,7 +47,25 @@ public class SpawnBug : MonoBehaviour
                 currentSpawn++;
             }
 
-            yield return null;  
+            spawnTimer += spawnDelay;
+            yield return null;
         }
     }
+    private IEnumerator CheckRemainingBugs()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            GameObject[] remainingBugs = GameObject.FindGameObjectsWithTag("Bug");
+
+            if (remainingBugs.Length == 0 && spawnTimer >= spawnDuration)
+            {
+                Debug.Log("het bug");
+                miniGame.CloseComputer();
+                yield break;
+            }
+        }
+    }
+
 }

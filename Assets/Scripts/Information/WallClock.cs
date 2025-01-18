@@ -15,6 +15,8 @@ public class WallClock : MonoBehaviour
 
     public float startHour = 6f; // Giờ bắt đầu
     public float endHour = 7f;   // Giờ kết thúc
+    [SerializeField] private MiniGameController miniGameController;
+
 
     void Update()
     {
@@ -47,6 +49,11 @@ public class WallClock : MonoBehaviour
         {
             Debug.Log("Cảnh báo: Đồng hồ đã đạt 7 giờ!");
             SceneManager.LoadScene("Company");
+        }
+
+        if (Mathf.Approximately(currentHour, 12f))
+        {
+            miniGameController.canPlayDialogueMinigame = true;
         }
     }
 

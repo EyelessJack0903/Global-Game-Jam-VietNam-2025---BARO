@@ -48,34 +48,38 @@ public class MouseBubble : MonoBehaviour
         }
     }
 
-    private void Update()
+private void Update()
+{
+    Vector3 mousePosition = Input.mousePosition;
+    mousePosition.z = -Camera.main.transform.position.z;
+
+    targetPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+    Bounds bounds = boxCollider2D.bounds;
+
+    // Giới hạn vị trí mục tiêu trong phạm vi BoxCollider2D
+    targetPosition.x = Mathf.Clamp(targetPosition.x, bounds.min.x, bounds.max.x);
+    targetPosition.y = Mathf.Clamp(targetPosition.y, bounds.min.y, bounds.max.y);
+
+    // Đặt giá trị z = 10
+    targetPosition.z = 10f;
+
+    // Di chuyển đối tượng dần dần về phía vị trí mục tiêu với tốc độ moveSpeed
+    transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+    if (Input.GetMouseButtonDown(0))
     {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = -Camera.main.transform.position.z;
-
-        targetPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-        Bounds bounds = boxCollider2D.bounds;
-
-        // Giới hạn vị trí mục tiêu trong phạm vi BoxCollider2D
-        targetPosition.x = Mathf.Clamp(targetPosition.x, bounds.min.x, bounds.max.x);
-        targetPosition.y = Mathf.Clamp(targetPosition.y, bounds.min.y, bounds.max.y);
-
-        // Di chuyển đối tượng dần dần về phía vị trí mục tiêu với tốc độ moveSpeed
-        transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            TryCatchBug();
-        }
-
-        if (Input.GetMouseButtonDown(1)) 
-        {
-            TryReleaseBugs();
-        }
-
-        MoveBugsInsideCircle();
+        TryCatchBug();
     }
+
+    if (Input.GetMouseButtonDown(1))
+    {
+        TryReleaseBugs();
+    }
+
+    MoveBugsInsideCircle();
+}
+
     private void TryCatchBug()
     {
         if (!canCatchBugs) return;

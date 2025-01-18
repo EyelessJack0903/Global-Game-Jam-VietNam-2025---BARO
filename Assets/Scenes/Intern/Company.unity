@@ -1518,6 +1518,7 @@ MonoBehaviour:
   duration: 180
   startHour: 8
   endHour: 18
+  miniGameController: {fileID: 1809453665}
 --- !u!1 &592137101
 GameObject:
   m_ObjectHideFlags: 0
@@ -4191,7 +4192,11 @@ MonoBehaviour:
   wcPanel: {fileID: 0}
   minigameComputerPrefab: {fileID: 3669008804026325066, guid: ec50cc6e04a38fa4da4b37f89ad12469, type: 3}
   minigamePrinterPrefab: {fileID: 317483885721672405, guid: 628b9c791fac26141ab4c8e6a5e0ea93, type: 3}
+  minigameMoodPrefab: {fileID: 2980236318594823092, guid: 574bcfb2ed0ad6a46ac690a3a882456c, type: 3}
+  minigameDialoguePrefab: {fileID: 0}
   winTextUI: {fileID: 0}
+  isFinishComputerMinigame: 0
+  canPlayDialogueMinigame: 0
 --- !u!1 &1869077844
 GameObject:
   m_ObjectHideFlags: 0

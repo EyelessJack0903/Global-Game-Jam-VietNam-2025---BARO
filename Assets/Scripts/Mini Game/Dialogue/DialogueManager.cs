@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !currentDialogue.isChoice)
+        if (Input.GetMouseButtonDown(0) && !currentDialogue.isChoice)
         {
             ShowChoices();
         }

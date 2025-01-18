@@ -24,33 +24,37 @@ public class SpawnBug : MonoBehaviour
         miniGame = FindFirstObjectByType<MiniGameController>();
         StartCoroutine(SpawnBugs());
     }
-
-    private IEnumerator SpawnBugs()
+private IEnumerator SpawnBugs()
+{
+    while (canSpawn)
     {
-        while (canSpawn)
+        if (spawnTimer >= spawnDuration)
         {
-            if (spawnTimer >= spawnDuration)
-            {
-                canSpawn = false;
-                StartCoroutine(CheckRemainingBugs());
-                yield break;
-            }
-
-            if (currentSpawn < maxSpawn)
-            {
-                yield return new WaitForSeconds(spawnDelay);
-
-                int randomIndex = Random.Range(0, spawnPositions.Length);
-                Transform spawnPosition = spawnPositions[randomIndex];
-
-                Instantiate(bug, spawnPosition.position, Quaternion.identity);
-                currentSpawn++;
-            }
-
-            spawnTimer += spawnDelay;
-            yield return null;
+            canSpawn = false;
+            StartCoroutine(CheckRemainingBugs());
+            yield break;
         }
+
+        if (currentSpawn < maxSpawn)
+        {
+            yield return new WaitForSeconds(spawnDelay);
+
+            int randomIndex = Random.Range(0, spawnPositions.Length);
+            Transform spawnPosition = spawnPositions[randomIndex];
+
+            // Đặt z = 0 bằng cách tạo một Vector3 mới
+            Vector3 spawnPosAdjusted = new Vector3(spawnPosition.position.x, spawnPosition.position.y, 10f);
+
+            // Tạo bug tại vị trí đã điều chỉnh
+            Instantiate(bug, spawnPosAdjusted, Quaternion.identity);
+            currentSpawn++;
+        }
+
+        spawnTimer += spawnDelay;
+        yield return null;
     }
+}
+
     private IEnumerator CheckRemainingBugs()
     {
         while (true)
@@ -63,6 +67,7 @@ public class SpawnBug : MonoBehaviour
             {
                 Debug.Log("het bug");
                 miniGame.CloseComputer();
+                miniGame.isFinishComputerMinigame = true;
                 yield break;
             }
         }

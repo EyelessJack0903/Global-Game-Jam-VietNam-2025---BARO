@@ -1,4 +1,5 @@
 using System.Collections;
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
@@ -10,17 +11,40 @@ public class MiniGameController : MonoBehaviour
     public GameObject wcPanel;
     public GameObject minigameComputerPrefab;
     public GameObject minigamePrinterPrefab;
+    public GameObject minigameMoodPrefab;
+    public GameObject minigameDialoguePrefab;
 
     private bool isComputerActive = false; // Biến kiểm soát trạng thái của Computer
     private GameObject activeComputerInstance; // Lưu trữ instance của Computer khi được tạo
     private bool isMinigameActive;
     public TextMeshProUGUI winTextUI;
+    
+    [HideInInspector] public bool isFinishComputerMinigame;
+    private bool isFinishPrinterMinigame;
+    [HideInInspector] public bool canPlayDialogueMinigame;
 
+    private void Start() {
+        isFinishComputerMinigame = false;
+        isFinishPrinterMinigame = false;
+        canPlayDialogueMinigame = false;
+
+        /// <summary>
+        /// if (canPlayDialogueMinigame và tạo một biến kiểm tra nếu cái mood bị xóa) 
+        ///     HandleMinigame(minigameDialoguePrefab);
+        /// </summary>
+    }
 
     private void Update()
     {
+        if (isFinishPrinterMinigame && isFinishComputerMinigame){
+            HandleMinigame(minigameMoodPrefab);
+            isFinishComputerMinigame = false;
+            isFinishPrinterMinigame = false;
+        }
+
         if (StampGame.isGameOver)
         {
+            isFinishPrinterMinigame = true;
             ClosePrince();
         }
 

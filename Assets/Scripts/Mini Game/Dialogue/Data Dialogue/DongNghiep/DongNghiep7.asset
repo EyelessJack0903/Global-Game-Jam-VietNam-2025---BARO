@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d38d372f951f446a04bc561e426a75, type: 3}
+  m_Name: DongNghiep7
+  m_EditorClassIdentifier: 
+  dialogueText: "Ph\u1EA3i r\u1ED3i, \u0111\xF4i khi g\u1EB7p kh\xF3 kh\u0103n c\u0169ng
+    l\xE0 c\u01A1 h\u1ED9i \u0111\u1EC3 m\xECnh h\u1ECDc th\xEAm \u0111i\u1EC1u m\u1EDBi.
+    C\u1EADu th\u1EA5y v\u1EADy kh\xF4ng?"
+  isPositive: 0
+  speakerName: "\u0110\u1ED3ng nghi\u1EC7p"
+  nextDialogues:
+  - {fileID: 11400000, guid: 67631f4bda1d37940a3cf2c1d322c554, type: 2}
+  - {fileID: 11400000, guid: 24749e86be1f9d94792ea4047dc065c7, type: 2}
+  isChoice: 0
+  delayTime: 5

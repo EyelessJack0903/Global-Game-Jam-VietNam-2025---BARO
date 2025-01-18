@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d38d372f951f446a04bc561e426a75, type: 3}
+  m_Name: Ban7.1
+  m_EditorClassIdentifier: 
+  dialogueText: "Nh\u01B0ng c\u0169ng \u0111\xFAng, th\u1EED th\xE1ch th\u1EBF n\xE0y
+    s\u1EBD gi\xFAp m\xECnh r\xE8n luy\u1EC7n b\u1EA3n l\u0129nh h\u01A1n."
+  isPositive: 1
+  speakerName: "B\u1EA1n"
+  nextDialogues:
+  - {fileID: 11400000, guid: 0c32389660056e64fb5ab1d3a9900b60, type: 2}
+  isChoice: 1
+  delayTime: 5

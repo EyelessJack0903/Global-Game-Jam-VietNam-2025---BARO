@@ -21,6 +21,7 @@ public class MouseBubble : MonoBehaviour
     private CircleCollider2D circleCollider2D;
 
     private bool canCatchBugs = true;
+    private SpawnBug bugSpawn;
     private void Awake()
     {
         circleCollider2D = GetComponent<CircleCollider2D>();
@@ -33,6 +34,8 @@ public class MouseBubble : MonoBehaviour
 
     private void Start()
     {
+        bugSpawn = FindFirstObjectByType<SpawnBug>();
+
         Vector3 center = boxCollider2D.bounds.center;
         transform.position = center;
         targetPosition = center;
@@ -143,6 +146,10 @@ public class MouseBubble : MonoBehaviour
             if (bug != null)
             {
                 totalCoins += coinPerBug;
+                if (bugSpawn != null)
+                {
+                    bugSpawn.currentSpawn--;
+                }
                 Destroy(bug);
             }
         }

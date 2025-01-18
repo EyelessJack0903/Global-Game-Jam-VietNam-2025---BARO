@@ -46,7 +46,6 @@ public class EmotionManager : MonoBehaviour
     void Update()
     {
         CheckDominantEmotion();
-        Debug.Log(happySlider.value);
     }
 
     private void Init()

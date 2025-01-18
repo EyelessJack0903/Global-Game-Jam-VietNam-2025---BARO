@@ -19,4 +19,4 @@ MonoBehaviour:
   speakerName: "B\u1EA1n"
   nextDialogues: []
   isChoice: 1
-  delayTime: 5
+  delayTime: 6

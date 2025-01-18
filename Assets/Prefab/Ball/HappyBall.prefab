@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3068054416106743902}
   - component: {fileID: 899751494376759712}
   - component: {fileID: 2618564502892159185}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HappyBall
   m_TagString: BlueBall
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 200
+  m_SortingOrder: 225
   m_Sprite: {fileID: 21300000, guid: 2360056f2ee006d4aa307ba69ed4c948, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67cbeff5cd6d6d244adb04ad4593c6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
 --- !u!114 &2618564502892159185
 MonoBehaviour:
   m_ObjectHideFlags: 0

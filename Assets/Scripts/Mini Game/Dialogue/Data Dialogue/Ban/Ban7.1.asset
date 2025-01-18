@@ -19,4 +19,4 @@ MonoBehaviour:
   nextDialogues:
   - {fileID: 11400000, guid: 0c32389660056e64fb5ab1d3a9900b60, type: 2}
   isChoice: 1
-  delayTime: 5
+  delayTime: 6

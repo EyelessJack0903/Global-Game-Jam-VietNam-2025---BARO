@@ -40,7 +40,7 @@ public abstract class BaseBubbleCollisionHandler : MonoBehaviour
 
     private IEnumerator HandleCollision(GameObject bubble1, GameObject bubble2)
     {
-        // EmotionManager.AdjustEmotion("happy", 1f);
+        EmotionManager.AdjustEmotion("happy", 0.1f);
 
         DisableBubble(bubble1);
         DisableBubble(bubble2);

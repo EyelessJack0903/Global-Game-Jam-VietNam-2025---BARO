@@ -22,16 +22,11 @@ public class MiniGameController : MonoBehaviour
     [HideInInspector] public bool isFinishComputerMinigame;
     private bool isFinishPrinterMinigame;
     [HideInInspector] public bool canPlayDialogueMinigame;
-
+    private bool isFinishMoodMinigame;
     private void Start() {
         isFinishComputerMinigame = false;
         isFinishPrinterMinigame = false;
         canPlayDialogueMinigame = false;
-
-        /// <summary>
-        /// if (canPlayDialogueMinigame và tạo một biến kiểm tra nếu cái mood bị xóa) 
-        ///     HandleMinigame(minigameDialoguePrefab);
-        /// </summary>
     }
 
     private void Update()
@@ -40,12 +35,35 @@ public class MiniGameController : MonoBehaviour
             HandleMinigame(minigameMoodPrefab);
             isFinishComputerMinigame = false;
             isFinishPrinterMinigame = false;
+            isFinishMoodMinigame = true;
+        }
+
+        if (GameController.m_isWinner)
+        {
+            CloseMood();
+        }
+
+        if (GameController.m_isGameover)
+        {
+            CloseMood();
         }
 
         if (StampGame.isGameOver)
         {
             isFinishPrinterMinigame = true;
             ClosePrince();
+        }
+
+        if (StampGame.isWinner)
+        {
+            isFinishPrinterMinigame = true;
+            ClosePrince();
+        }
+
+        if (canPlayDialogueMinigame && isFinishMoodMinigame)
+        {
+            HandleMinigame(minigameDialoguePrefab); 
+            canPlayDialogueMinigame = false;
         }
 
         // Kiểm tra nếu nhấn phím ESC và Computer đang bật
@@ -68,7 +86,6 @@ public class MiniGameController : MonoBehaviour
                 }
             }
         }
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -207,6 +224,34 @@ public class MiniGameController : MonoBehaviour
             }
         }
         StampGame.isGameOver = false;
+        StampGame.isWinner = false;
+    }
+
+    public void CloseMood()
+    {
+        if (activeComputerInstance != null)
+        {
+            Destroy(activeComputerInstance);
+        }
+
+        foreach (GameObject obj in hideForMinigame)
+        {
+            if (obj != null)
+            {
+                if (obj.CompareTag("Character"))
+                {
+                    MoveToMouse moveScript = obj.GetComponent<MoveToMouse>();
+                    if (moveScript != null)
+                    {
+                        moveScript.enabled = true;
+                    }
+                }
+                obj.SetActive(true); // Bật lại các obj khác
+            }
+        }
+        isFinishMoodMinigame = true;
+        GameController.m_isGameover = false;
+        GameController.m_isWinner = false;
     }
 
     private IEnumerator HandleWCPanel()

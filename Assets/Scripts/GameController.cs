@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
@@ -14,11 +14,14 @@ public class GameController : MonoBehaviour
     private float m_spawnTime;
 
     public int lives = 3;
-    private bool m_isGameover;
+    public static bool m_isGameover;
+    public static bool m_isWinner;
 
     private float gameTime = 20f;
     private float currentTime;
-    private bool m_isTimeStopped; 
+    private bool m_isTimeStopped;
+
+    private EmotionManager emotionManager;
 
     private void Awake()
     {
@@ -34,6 +37,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        emotionManager = FindFirstObjectByType<EmotionManager>();
+
         currentTime = gameTime;
         Instantiate(deathZonePrefab, new Vector2(0, 5.02f), Quaternion.identity);
         m_spawnTime = 0;
@@ -58,6 +63,7 @@ public class GameController : MonoBehaviour
                 {
                     GameOver();
                 }
+                DestroyAllBubblesWithLayer(LayerMask.NameToLayer("BubbleAAA"));
             }
         }
 
@@ -73,6 +79,19 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void DestroyAllBubblesWithLayer(int layer)
+    {
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.layer == layer)
+            {
+                Destroy(obj); 
+            }
+        }
+    }
+
     public void SpawnBall()
     {
         GameObject ballPrefab = ChooseBallPrefab();
@@ -83,7 +102,7 @@ public class GameController : MonoBehaviour
         {
             GameObject spawnedBall = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
 
-            float randomSpeed = Random.Range(0.75f, 2f);
+            float randomSpeed = Random.Range(3f, 5f);
 
             SetBallSpeed(spawnedBall, randomSpeed);
         }
@@ -125,12 +144,14 @@ public class GameController : MonoBehaviour
     public void LoseLife()
     {
         lives--;
+        emotionManager.AdjustEmotion("sad", 1f);
 
         Debug.Log("Lives remaining: " + lives);
 
         if (lives <= 0)
         {
             GameOver();
+            emotionManager.AdjustEmotion("angry", 2f);
         }
     }
 
@@ -143,9 +164,10 @@ public class GameController : MonoBehaviour
 
     private void GameWin()
     {
-        m_isGameover = true;
+        m_isWinner = true;
         m_isTimeStopped = true;
         Debug.Log("You Win!");
+        emotionManager.AdjustEmotion("happy", 2f);
     }
 
     public bool IsGameover()

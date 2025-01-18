@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.Device;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -132,6 +134,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Debug.Log("Khong có hội thoại nữa");
+            SceneManager.LoadScene("Outtro");
         }
     }
 }

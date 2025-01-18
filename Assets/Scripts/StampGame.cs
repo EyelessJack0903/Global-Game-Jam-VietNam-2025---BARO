@@ -24,22 +24,26 @@ public class StampGame : MonoBehaviour
 
     private RectTransform targetHandle;
 
+    public GameObject gameOverPanel;
+    public static bool isGameOver = false;
+
     void Start()
     {
-       
         targetHandle = targetAreaScrollbar.handleRect;
 
         paperButton.onClick.AddListener(() => HandleLeftClick());
         RandomizePaperColor();
+
+        gameOverPanel.SetActive(false);
     }
 
     void Update()
     {
         MoveBar();
 
-        if (Input.GetMouseButtonDown(1)) 
+        if (Input.GetMouseButtonDown(1))
         {
-            if (IsPointerOverUIElement(paperButton)) 
+            if (IsPointerOverUIElement(paperButton))
             {
                 HandleRightClick();
             }
@@ -50,7 +54,7 @@ public class StampGame : MonoBehaviour
     {
         PointerEventData pointerData = new PointerEventData(EventSystem.current)
         {
-            position = Input.mousePosition 
+            position = Input.mousePosition
         };
 
         var raycastResults = new System.Collections.Generic.List<RaycastResult>();
@@ -64,16 +68,16 @@ public class StampGame : MonoBehaviour
             }
         }
 
-        return false; 
+        return false;
     }
 
 
     bool IsPointerOverPaperButton()
     {
-        Vector2 mousePosition = Input.mousePosition; 
-        RectTransform paperButtonRect = paperButton.GetComponent<RectTransform>(); 
+        Vector2 mousePosition = Input.mousePosition;
+        RectTransform paperButtonRect = paperButton.GetComponent<RectTransform>();
 
-        return RectTransformUtility.RectangleContainsScreenPoint(paperButtonRect, mousePosition, Camera.main); 
+        return RectTransformUtility.RectangleContainsScreenPoint(paperButtonRect, mousePosition, Camera.main);
     }
 
     void MoveBar()
@@ -108,15 +112,14 @@ public class StampGame : MonoBehaviour
 
     void RandomizeTargetPosition()
     {
-        float currentPosition = targetAreaScrollbar.value; 
+        float currentPosition = targetAreaScrollbar.value;
         float newPosition;
 
         do
         {
             newPosition = Random.Range(0f, 1f);
         }
-        while (Mathf.Abs(newPosition - currentPosition) < 0.3f); 
-
+        while (Mathf.Abs(newPosition - currentPosition) < 0.3f);
         targetAreaScrollbar.value = newPosition;
     }
 
@@ -198,6 +201,12 @@ public class StampGame : MonoBehaviour
         if (lives <= 0)
         {
             Debug.Log("Game Over!");
+
+            isGameOver = true;
+
+            gameOverPanel.SetActive(true);
+
+            FindObjectOfType<EmotionManager>().AdjustEmotion("scared", 3f);
         }
     }
 }

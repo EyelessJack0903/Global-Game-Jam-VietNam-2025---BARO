@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MiniGameController : MonoBehaviour
 {
-
     public WallClock wallClock;
     public GameObject[] hideForMinigame;
     public GameObject minigameBedPrefab;
@@ -14,20 +13,15 @@ public class MiniGameController : MonoBehaviour
 
     private bool isComputerActive = false; // Biến kiểm soát trạng thái của Computer
     private GameObject activeComputerInstance; // Lưu trữ instance của Computer khi được tạo
+    private bool isMinigameActive;
     public TextMeshProUGUI winTextUI;
-    private bool isMinigameActive = false;
-    private bool isPlayMiniGameMap2 = false;
 
-    private void Start()
-    {
-        // winTextUI.gameObject.SetActive(false);
-    }
 
     private void Update()
     {
-        if (isPlayMiniGameMap2){
-            GameObject[] bubbles = GameObject.FindGameObjectsWithTag("Bubble");
-
+        if (StampGame.isGameOver)
+        {
+            ClosePrince();
         }
 
         // Kiểm tra nếu nhấn phím ESC và Computer đang bật
@@ -52,13 +46,11 @@ public class MiniGameController : MonoBehaviour
         }
 
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Map home ----
         if (collision.gameObject.name == "Bed")
         {
-            isMinigameActive = true;
             HandleMinigame(minigameBedPrefab);
         }
 
@@ -72,12 +64,10 @@ public class MiniGameController : MonoBehaviour
         {
             HandleMinigame(minigameComputerPrefab);
             isComputerActive = true; // Đánh dấu trạng thái Computer đang bật
-            isPlayMiniGameMap2 = true;
         }
         if (collision.gameObject.name == "Printer")
         {
             HandleMinigame(minigamePrinterPrefab);
-            isPlayMiniGameMap2 = true;
         }
     }
 
@@ -170,43 +160,62 @@ public class MiniGameController : MonoBehaviour
         }
     }
 
-    private IEnumerator HandleWCPanel()
+    public void ClosePrince()
     {
-        // Chờ 3 giây
-        yield return new WaitForSeconds(3f);
-        wallClock.SetTimeScale(1);
-
-        // Ẩn wcPanel
-        if (wcPanel != null)
+        if (activeComputerInstance != null)
         {
-            wcPanel.SetActive(false);
+            Destroy(activeComputerInstance); 
         }
 
-        // Hiển thị lại các GameObject trong mảng hideForMinigame
         foreach (GameObject obj in hideForMinigame)
         {
             if (obj != null)
             {
                 if (obj.CompareTag("Character"))
                 {
-                    // Bật lại script MoveToMouse nếu nó bị vô hiệu hóa
                     MoveToMouse moveScript = obj.GetComponent<MoveToMouse>();
                     if (moveScript != null)
                     {
                         moveScript.enabled = true;
                     }
+                }
+                obj.SetActive(true); // Bật lại các obj khác
+            }
+        }
+        StampGame.isGameOver = false;
+    }
 
-                    // Đặt nhân vật tại vị trí chính giữa màn hình
-                    obj.transform.position = new Vector3(0, -1, 0);
+    private IEnumerator HandleWCPanel()
+    {
+        yield return new WaitForSeconds(3f);
+        wallClock.SetTimeScale(1);
+
+        if (wcPanel != null)
+        {
+            wcPanel.SetActive(false);
+        }
+
+        foreach (GameObject obj in hideForMinigame)
+        {
+            if (obj != null)
+            {
+                if (obj.CompareTag("Character"))
+                {
+                    MoveToMouse moveScript = obj.GetComponent<MoveToMouse>();
+                    if (moveScript != null)
+                    {
+                        moveScript.enabled = true;
+                    }
+                    obj.transform.position = Vector3.zero;
                 }
                 else
                 {
-                    // Hiển thị lại các obj khác
                     obj.SetActive(true);
                 }
             }
         }
     }
+
     private IEnumerator ShowWinScreen()
     {
         isMinigameActive = false;

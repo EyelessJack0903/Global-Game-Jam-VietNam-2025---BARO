@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class StampGame : MonoBehaviour
 {
@@ -36,10 +37,43 @@ public class StampGame : MonoBehaviour
     {
         MoveBar();
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1)) 
         {
-            HandleRightClick();
+            if (IsPointerOverUIElement(paperButton)) 
+            {
+                HandleRightClick();
+            }
         }
+    }
+
+    bool IsPointerOverUIElement(Button button)
+    {
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition 
+        };
+
+        var raycastResults = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        foreach (var result in raycastResults)
+        {
+            if (result.gameObject == button.gameObject)
+            {
+                return true;
+            }
+        }
+
+        return false; 
+    }
+
+
+    bool IsPointerOverPaperButton()
+    {
+        Vector2 mousePosition = Input.mousePosition; 
+        RectTransform paperButtonRect = paperButton.GetComponent<RectTransform>(); 
+
+        return RectTransformUtility.RectangleContainsScreenPoint(paperButtonRect, mousePosition, Camera.main); 
     }
 
     void MoveBar()
@@ -74,9 +108,18 @@ public class StampGame : MonoBehaviour
 
     void RandomizeTargetPosition()
     {
-        float newPosition = Random.Range(0f, 1f);
+        float currentPosition = targetAreaScrollbar.value; 
+        float newPosition;
+
+        do
+        {
+            newPosition = Random.Range(0f, 1f);
+        }
+        while (Mathf.Abs(newPosition - currentPosition) < 0.3f); 
+
         targetAreaScrollbar.value = newPosition;
     }
+
 
     void HandleLeftClick()
     {
@@ -121,10 +164,12 @@ public class StampGame : MonoBehaviour
     bool IsOnTarget()
     {
         float distance = Mathf.Abs(movingBarScrollbar.value - targetAreaScrollbar.value);
-        float targetRange = targetHandle.sizeDelta.x / targetAreaScrollbar.GetComponent<RectTransform>().sizeDelta.x;
 
-        return distance <= targetRange;
+        float collisionRange = 0.1f;
+
+        return distance <= collisionRange;
     }
+
 
 
     void ShrinkTargetArea()

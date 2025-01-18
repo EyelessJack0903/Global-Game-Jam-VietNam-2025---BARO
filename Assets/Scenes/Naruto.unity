@@ -516,7 +516,7 @@ MonoBehaviour:
   movingBarScrollbar: {fileID: 1768031298}
   redColor: {r: 1, g: 0, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  barSpeed: 1
+  barSpeed: 0.5
   shrinkAmount: 0.02
   minTargetWidth: 0.05
 --- !u!222 &148836395

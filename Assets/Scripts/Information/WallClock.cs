@@ -1,5 +1,6 @@
+using UnityEditor.SearchService;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class WallClock : MonoBehaviour
 {
     public RectTransform minuteHand; // Kim phút
@@ -45,6 +46,7 @@ public class WallClock : MonoBehaviour
         if (Mathf.Approximately(currentHour, 7f))
         {
             Debug.Log("Cảnh báo: Đồng hồ đã đạt 7 giờ!");
+            SceneManager.LoadScene("Company");
         }
     }
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Cần để chuyển scene
 
 public class EmotionManager : MonoBehaviour
 {
@@ -46,6 +47,16 @@ public class EmotionManager : MonoBehaviour
     void Update()
     {
         CheckDominantEmotion();
+
+        if (happy <= 0f || sad >= maxEmotionValue || angry >= maxEmotionValue || scared >= maxEmotionValue)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AdjustEmotion("happy", -10f);
+        }
     }
 
     private void Init()
@@ -114,7 +125,6 @@ public class EmotionManager : MonoBehaviour
         UpdateEmoji(happy, sad, angry, scared, energy);
     }
 
-
     private void UpdateEmoji(float happy, float sad, float angry, float scared, float energy)
     {
         // Đồng bộ giá trị Slider với giá trị emoji
@@ -131,7 +141,6 @@ public class EmotionManager : MonoBehaviour
         scaredSlider.maxValue = maxEmotionValue;
         energySlider.maxValue = maxEnergyValue;
     }
-
 
     public void AdjustEnergy(float amount)
     {

@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 430489315113559156}
   - component: {fileID: 5854090204806792968}
   - component: {fileID: 3068054416106743902}
-  - component: {fileID: 899751494376759712}
-  - component: {fileID: 2618564502892159185}
+  - component: {fileID: 230173791365798612}
+  - component: {fileID: -1089655414034969559}
   m_Layer: 0
-  m_Name: BallBlue
-  m_TagString: BlueBall
+  m_Name: SadBall
+  m_TagString: RedBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7985626363670038235, guid: ada484ec5c0fdcb449420ac500352852, type: 3}
-  m_Color: {r: 0, g: 0.19692326, b: 1, a: 1}
+  m_Sprite: {fileID: -3752711834126370623, guid: e26a5c10160bc5a4a9edbb82507abb48, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -152,9 +152,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0135741625, y: 1.7738954}
-  m_Radius: 1.6936264
---- !u!114 &899751494376759712
+  m_Offset: {x: 0.02714743, y: 1.7510105}
+  m_Radius: 1.6537665
+--- !u!114 &230173791365798612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,11 +163,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1141989071707006167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67cbeff5cd6d6d244adb04ad4593c6f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fbb33cc04de0b2468cd1878008c66a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
---- !u!114 &2618564502892159185
+--- !u!114 &-1089655414034969559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

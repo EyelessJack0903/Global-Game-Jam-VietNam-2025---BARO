@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EmotionLess_0: 187862973639708163
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

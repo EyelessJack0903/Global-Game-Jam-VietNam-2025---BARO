@@ -10,6 +10,10 @@ TagManager:
   - Bubble
   - GameOver
   - Character
+  - TargetArea
+  - DeathZone
+  - BlueBall
+  - RedBall
   layers:
   - Default
   - TransparentFX

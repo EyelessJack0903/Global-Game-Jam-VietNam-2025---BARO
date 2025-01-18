@@ -7,10 +7,11 @@ public class MiniGameController : MonoBehaviour
     public GameObject[] hideForMinigame;
     public GameObject minigameBedPrefab;
     public GameObject wcPanel;
+    public GameObject minigameComputerPrefab;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        // Map home ----
         // Kiểm tra nếu đối tượng va chạm có tên là "Bed"
         if (collision.gameObject.name == "Bed")
         {
@@ -87,6 +88,43 @@ public class MiniGameController : MonoBehaviour
             else
             {
                 Debug.LogWarning("wcPanel chưa được gán!");
+            }
+        }
+
+        // Map Company ----
+        if (collision.gameObject.name == "Computer")
+        {
+            // Ẩn tất cả các GameObject trong mảng hideForMinigame
+            foreach (GameObject obj in hideForMinigame)
+            {
+                if (obj != null)
+                {
+                    // Kiểm tra nếu obj là "character" bằng cách sử dụng tag
+                    if (obj.CompareTag("Character"))
+                    {
+                        // Tìm script MoveToMouse trên obj và vô hiệu hóa nó
+                        MoveToMouse moveScript = obj.GetComponent<MoveToMouse>();
+                        if (moveScript != null)
+                        {
+                            moveScript.enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        // Ẩn obj nếu không phải là "character"
+                        obj.SetActive(false);
+                    }
+                }
+            }
+
+            // Sinh ra prefab ở vị trí gốc (0, 0, 0) hoặc vị trí mong muốn
+            if (minigameComputerPrefab != null)
+            {
+                Instantiate(minigameComputerPrefab, Vector3.zero, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning("Prefab chưa được gán!");
             }
         }
     }

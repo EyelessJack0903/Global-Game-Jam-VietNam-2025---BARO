@@ -8,6 +8,7 @@ public class MiniGameController : MonoBehaviour
     public GameObject minigameBedPrefab;
     public GameObject wcPanel;
     public GameObject minigameComputerPrefab;
+    public GameObject minigamePrinterPrefab;
 
     private bool isComputerActive = false; // Biến kiểm soát trạng thái của Computer
     private GameObject activeComputerInstance; // Lưu trữ instance của Computer khi được tạo
@@ -39,6 +40,10 @@ public class MiniGameController : MonoBehaviour
         {
             HandleMinigame(minigameComputerPrefab);
             isComputerActive = true; // Đánh dấu trạng thái Computer đang bật
+        }
+        if (collision.gameObject.name == "Printer")
+        {
+            HandleMinigame(minigamePrinterPrefab);
         }
     }
 

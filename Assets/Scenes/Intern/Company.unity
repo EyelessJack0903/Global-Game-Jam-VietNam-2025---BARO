@@ -1149,7 +1149,6 @@ RectTransform:
   - {fileID: 703671810}
   - {fileID: 1042863544}
   - {fileID: 1593854265}
-  - {fileID: 671215571}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1897,81 +1896,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644681843}
-  m_CullTransparentMesh: 1
---- !u!1 &671215570
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 671215571}
-  - component: {fileID: 671215573}
-  - component: {fileID: 671215572}
-  m_Layer: 5
-  m_Name: WC Panel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &671215571
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671215570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 495811951}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &671215572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671215570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8352941}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &671215573
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671215570}
   m_CullTransparentMesh: 1
 --- !u!1 &703671807
 GameObject:
@@ -4294,7 +4218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4047e3f41f1f9654a90a91d593aeb85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 5
+  speedMove: 10
 --- !u!212 &1809453661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4359,7 +4283,7 @@ Transform:
   m_GameObject: {fileID: 1809453659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.58, y: -1.76, z: 0}
+  m_LocalPosition: {x: 5.43, y: -2.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4455,8 +4379,9 @@ MonoBehaviour:
   - {fileID: 1809453659}
   - {fileID: 2100219157}
   minigameBedPrefab: {fileID: 5592669825618912393, guid: 5ba5053abc4fcba418e30eafab481a3a, type: 3}
-  wcPanel: {fileID: 671215570}
+  wcPanel: {fileID: 0}
   minigameComputerPrefab: {fileID: 698394833335335502, guid: 224d3c84c272cc1479bec4ef2c19728c, type: 3}
+  minigamePrinterPrefab: {fileID: 317483885721672405, guid: 628b9c791fac26141ab4c8e6a5e0ea93, type: 3}
 --- !u!1 &1869077844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,7 +4607,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: cc6159839364e7942b9aab3dace51b0c, type: 3}
   m_Color: {r: 0.5773585, g: 0.5773585, b: 0.5773585, a: 1}
   m_FlipX: 0

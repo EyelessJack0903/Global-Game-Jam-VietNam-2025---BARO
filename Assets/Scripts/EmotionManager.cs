@@ -16,11 +16,11 @@ public class EmotionManager : MonoBehaviour
 
     public float maxEmotionValue = 10f;
 
-    // public Button happyButton;
-    // public Button sadButton;
-    // public Button angryButton;
-    // public Button scaredButton;
-    // public Button energyButton; 
+    public Button happyButton;
+    public Button sadButton;
+    public Button angryButton;
+    public Button scaredButton;
+    public Button energyButton;
 
     [Header("Thanh trạng thái cảm xúc")]
     public Slider happySlider;  
@@ -31,11 +31,11 @@ public class EmotionManager : MonoBehaviour
 
     void Start()
     {
-        // happyButton.onClick.AddListener(() => AdjustEmotion("happy", 1f));
-        // sadButton.onClick.AddListener(() => AdjustEmotion("sad", 1f));
-        // angryButton.onClick.AddListener(() => AdjustEmotion("angry", 1f));
-        // scaredButton.onClick.AddListener(() => AdjustEmotion("scared", 1f));
-        // energyButton.onClick.AddListener(() => AdjustEnergy(1f)); 
+        happyButton.onClick.AddListener(() => AdjustEmotion("happy", 1f));
+        sadButton.onClick.AddListener(() => AdjustEmotion("sad", 1f));
+        angryButton.onClick.AddListener(() => AdjustEmotion("angry", 1f));
+        scaredButton.onClick.AddListener(() => AdjustEmotion("scared", 1f));
+        energyButton.onClick.AddListener(() => AdjustEnergy(1f));
 
         // Khởi tạo giá trị tối đa cho Slider
         happySlider.maxValue = maxEmotionValue;

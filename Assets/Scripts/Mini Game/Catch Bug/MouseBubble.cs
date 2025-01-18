@@ -83,10 +83,7 @@ public class MouseBubble : MonoBehaviour
 
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(bubblePosition, checkBug, bugLayer);
 
-        Debug.Log("Mouse button pressed. Checking for bugs...");
-
         int caughtBugsCount = caughtBugs.Count;
-        Debug.Log("Currently caught bugs: " + caughtBugsCount);
 
         // Kiểm tra nếu giỏ đầy
         if (caughtBugsCount >= 5)
@@ -105,8 +102,6 @@ public class MouseBubble : MonoBehaviour
 
                 if (!alreadyCaughtBugs.Contains(caughtBug) && !caughtBugs.Contains(caughtBug))
                 {
-                    Debug.Log("Bugs caught before: " + caughtBugs.Count);
-
                     caughtBug.transform.SetParent(bugContainer);
                     caughtBug.transform.position = circleCollider2D.transform.position;
 
@@ -114,7 +109,6 @@ public class MouseBubble : MonoBehaviour
                     caughtBugs.Add(caughtBug); 
 
                     alreadyCaughtBugs.Add(caughtBug); 
-                    Debug.Log("Bugs caught after: " + caughtBugs.Count);
 
                     if (caughtBugs.Count >= 5)
                     {

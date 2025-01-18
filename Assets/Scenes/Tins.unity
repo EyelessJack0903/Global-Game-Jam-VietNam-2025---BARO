@@ -893,8 +893,29 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+<<<<<<< HEAD
   m_Constraints: 0
 --- !u!224 &2056680733 stripped
+=======
+  m_Constraints: 4
+--- !u!1 &1869077844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1869077845}
+  m_Layer: 5
+  m_Name: Handle Slide Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1869077845
+>>>>>>> 9b94b6816ed1da516a1068d13b28ac16370eef1c
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 376389456906201681, guid: d49fabbaac69a164491730d4a2417db0, type: 3}
   m_PrefabInstance: {fileID: 8283537602080134767}

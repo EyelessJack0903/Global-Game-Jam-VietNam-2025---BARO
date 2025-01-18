@@ -17,24 +17,24 @@ public class SpawnBug : MonoBehaviour
         StartCoroutine(SpawnBugs());
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P) && currentSpawn > 0)
-        {
-            currentSpawn--;
-            DestroyBug();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.P) && currentSpawn > 0)
+    //    {
+    //        currentSpawn--;
+    //        DestroyBug();
+    //    }
+    //}
 
-    private void DestroyBug()
-    {
-        GameObject[] bugs = GameObject.FindGameObjectsWithTag("Bug");
+    //private void DestroyBug()
+    //{
+    //    GameObject[] bugs = GameObject.FindGameObjectsWithTag("Bug");
 
-        if (bugs.Length > 0)
-        {
-            Destroy(bugs[bugs.Length - 1]); 
-        }
-    }
+    //    if (bugs.Length > 0)
+    //    {
+    //        Destroy(bugs[bugs.Length - 1]); 
+    //    }
+    //}
 
     private IEnumerator SpawnBugs()
     {

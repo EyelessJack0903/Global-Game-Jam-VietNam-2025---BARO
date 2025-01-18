@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MiniGameController : MonoBehaviour
 {
+
     public WallClock wallClock;
     public GameObject[] hideForMinigame;
     public GameObject minigameBedPrefab;

@@ -10,12 +10,14 @@ public class BoxInfoDisplay : MonoBehaviour
     public string nameObject; 
     public string infoObject; 
 
+    private Camera cum;
     void Start()
     {
         if (boxInformation != null)
         {
             boxInformation.SetActive(false);
         }
+        cum = FindAnyObjectByType<Camera>();
     }
 
     void Update()

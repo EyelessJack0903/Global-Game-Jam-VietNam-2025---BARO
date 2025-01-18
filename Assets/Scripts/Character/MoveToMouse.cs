@@ -7,6 +7,13 @@ public class MoveToMouse : MonoBehaviour
     private Vector3 targetPosition;
     private bool isMoving = false;
 
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     void Update()
     // void FixedUpdate()
     {
@@ -22,14 +29,27 @@ public class MoveToMouse : MonoBehaviour
         // Di chuyển nhân vật tới vị trí mục tiêu
         if (isMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speedMove * Time.deltaTime);
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isWalk", true);
 
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speedMove * Time.deltaTime);
             // Dừng di chuyển nếu đã đến gần vị trí mục tiêu
             if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
             {
+                Flip();
                 isMoving = false;
+                anim.SetBool("isIdle", true);
+                anim.SetBool("isWalk", false);
             }
+
         }
+    }
+
+    void Flip()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

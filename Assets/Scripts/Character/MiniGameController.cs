@@ -275,7 +275,7 @@ public class MiniGameController : MonoBehaviour
                     {
                         moveScript.enabled = true;
                     }
-                    obj.transform.position = Vector3.zero;
+                    obj.transform.position = new Vector3(0f,-1f,0f);
                 }
                 else
                 {

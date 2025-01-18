@@ -4048,11 +4048,11 @@ MonoBehaviour:
   energy: 4
   maxEnergyValue: 20
   maxEmotionValue: 10
-  happyButton: {fileID: 0}
-  sadButton: {fileID: 0}
-  angryButton: {fileID: 0}
-  scaredButton: {fileID: 0}
-  energyButton: {fileID: 0}
+  happyButton: {fileID: 2052865412512769281, guid: 9f24e11ace4437648a02724f3254940f, type: 3}
+  sadButton: {fileID: 128495675812014981, guid: 64dce3690fa37374295a5d19001532e2, type: 3}
+  angryButton: {fileID: 126258332516608460, guid: 936d81074ca874245aaf352ca6b3f022, type: 3}
+  scaredButton: {fileID: 5554094915818426276, guid: e9d8d5d127ca9804882f3b5283b736d6, type: 3}
+  energyButton: {fileID: 997335008869904655, guid: 1b934de1204f08844b8e557152624366, type: 3}
   happySlider: {fileID: 565895964}
   sadSlider: {fileID: 1159219194}
   angrySlider: {fileID: 2056680734}

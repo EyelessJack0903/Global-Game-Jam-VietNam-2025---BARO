@@ -21,6 +21,7 @@ public class ButtonText : MonoBehaviour , IPointerEnterHandler, IPointerExitHand
         {
             highlight.SetActive(true);
         }
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)

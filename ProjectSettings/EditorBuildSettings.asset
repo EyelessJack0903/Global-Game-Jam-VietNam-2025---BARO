@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MENU.unity
+    guid: 9c728ad9fba97864daf5e3b8484ca784
+  - enabled: 1
     path: Assets/Scenes/Naruto.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    guid: 38c5973e2d9e75b469b8471e2aa611f6
   - enabled: 1
     path: Assets/Scenes/Intern/Home.unity
     guid: 1ad9e88a7ded89e4cb39dda5c40b5fa7
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intern/Outtro.unity
     guid: 4790b5a10bf22d040ab70491130cfea6
-  - enabled: 1
-    path: Assets/Scenes/MENU.unity
-    guid: 9c728ad9fba97864daf5e3b8484ca784
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 9b5cd541e5a49cc4d9683c887e0ee9e0

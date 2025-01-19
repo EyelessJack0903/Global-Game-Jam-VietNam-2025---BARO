@@ -52,11 +52,6 @@ public class EmotionManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AdjustEmotion("happy", -10f);
-        }
     }
 
     private void Init()

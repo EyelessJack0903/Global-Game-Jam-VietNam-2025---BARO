@@ -2,6 +2,7 @@ using System.Collections;
 using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class MiniGameController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MiniGameController : MonoBehaviour
     public GameObject minigamePrinterPrefab;
     public GameObject minigameMoodPrefab;
     public GameObject minigameDialoguePrefab;
+    public PlayableDirector timeline;
 
     private bool isComputerActive = false; // Biến kiểm soát trạng thái của Computer
     private GameObject activeComputerInstance; // Lưu trữ instance của Computer khi được tạo
@@ -23,6 +25,7 @@ public class MiniGameController : MonoBehaviour
     private bool isFinishPrinterMinigame;
     [HideInInspector] public bool canPlayDialogueMinigame;
     private bool isFinishMoodMinigame;
+    private bool isPlayTimeline = false;
     private void Start() {
         isFinishComputerMinigame = false;
         isFinishPrinterMinigame = false;
@@ -31,7 +34,16 @@ public class MiniGameController : MonoBehaviour
 
     private void Update()
     {
-        if (isFinishPrinterMinigame && isFinishComputerMinigame){
+        if (isFinishPrinterMinigame && isFinishComputerMinigame)
+        {
+            if (!isPlayTimeline)
+            {
+                StartCoroutine(PlayTimeline());
+            }
+        }
+
+        if (isPlayTimeline && isFinishPrinterMinigame && isFinishComputerMinigame)
+        {
             HandleMinigame(minigameMoodPrefab);
             isFinishComputerMinigame = false;
             isFinishPrinterMinigame = false;
@@ -71,6 +83,12 @@ public class MiniGameController : MonoBehaviour
         {
             CloseComputer();
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            StartCoroutine(PlayTimeline());
+        }
+
         if (isMinigameActive)
         {
             // Tìm kiếm các GameObject có layer "Happy"
@@ -87,6 +105,14 @@ public class MiniGameController : MonoBehaviour
             }
         }
     }
+
+    IEnumerator PlayTimeline()
+    {
+        timeline.Play();
+        yield return new WaitForSeconds(15f);
+        isPlayTimeline = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Map home ----

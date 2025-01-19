@@ -2444,7 +2444,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 254c32a4893de934d8d5b4a3cc6f3840, type: 2}
   m_InitialState: 0
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -2468,8 +2468,6 @@ PlayableDirector:
     value: {fileID: 470263856}
   - key: {fileID: -7545697700077729910, guid: 254c32a4893de934d8d5b4a3cc6f3840, type: 2}
     value: {fileID: 1002632978}
-  - key: {fileID: 5318270215301004431, guid: 254c32a4893de934d8d5b4a3cc6f3840, type: 2}
-    value: {fileID: 1809453659}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &727368371
@@ -5180,6 +5178,7 @@ MonoBehaviour:
   minigamePrinterPrefab: {fileID: 317483885721672405, guid: 628b9c791fac26141ab4c8e6a5e0ea93, type: 3}
   minigameMoodPrefab: {fileID: 2980236318594823092, guid: 574bcfb2ed0ad6a46ac690a3a882456c, type: 3}
   minigameDialoguePrefab: {fileID: 5033961202924675070, guid: 8772b373fc3ca6644919b097040cdce8, type: 3}
+  timeline: {fileID: 727368370}
   winTextUI: {fileID: 0}
   isFinishComputerMinigame: 0
   canPlayDialogueMinigame: 0
